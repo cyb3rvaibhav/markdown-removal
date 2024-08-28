@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Remover Tool</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+    <h1>Markdown Remover Tool</h1>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <textarea id="markdown-input" placeholder="Enter your Markdown text here..." oninput="updatePreview()"></textarea>
+    <button class="clear-button" onclick="clearMarkdownInput()">Clear Markdown Input</button>
+    <div id="word-count" class="count-info">Word Count: 0</div>
+    <div id="char-count" class="count-info">Character Count: 0</div>
+    <h2>Markdown Preview</h2>
+    <iframe id="markdown-preview"></iframe>
+    <div class="checkbox-group">
+        <label><input type="checkbox" id="remove-bold"> Remove Bold (** or __)</label><br>
+        <label><input type="checkbox" id="remove-italic"> Remove Italic (* or _)</label><br>
+        <label><input type="checkbox" id="remove-links"> Remove Links</label><br>
+        <label><input type="checkbox" id="remove-headers"> Remove Headers (#)</label><br>
+        <label><input type="checkbox" id="remove-lists"> Remove Lists (-, *, +)</label><br>
+        <label><input type="checkbox" id="remove-inline-code"> Remove Inline Code (code)</label><br>
+        <label><input type="checkbox" id="remove-code-blocks"> Remove Code Blocks (`)</label><br>
+        <label><input type="checkbox" id="remove-blockquotes"> Remove Blockquotes (>)</label><br>
+        <label><input type="checkbox" id="remove-images"> Remove Images ![alt](url)</label><br>
+        <label><input type="checkbox" id="remove-horizontal-rules"> Remove Horizontal Rules (--- or ***)</label><br>
+        <label><input type="checkbox" id="remove-tables"> Remove Tables (| and ---)</label>
+    </div>
+    <button onclick="checkAll()">Check All</button>
+    <button onclick="removeMarkdown()">Remove Markdown</button>
+    <h2>Output</h2>
+    <div class="output-section">
+        <div>
+            <h3>Processed Text</h3>
+            <textarea id="output-text" readonly></textarea>
+        </div>
+        <div>
+            <h3>Word & Character Count</h3>
+            <div id="output-word-count" class="count-info">Word Count: 0</div>
+            <div id="output-char-count" class="count-info">Character Count: 0</div>
+        </div>
+    </div>
+    <button class="copy-button" onclick="copyToClipboard()">Copy to Clipboard</button>
+    <button class="download-button" onclick="downloadOutput()">Download Output Text File</button>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
